@@ -26,6 +26,9 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "transform": {}
+    "transform": {},
+    "moduleNameMapper": {
+      "^phaser$": "<rootDir>/__mocks__/phaser.js"
+    }
   }
 }
