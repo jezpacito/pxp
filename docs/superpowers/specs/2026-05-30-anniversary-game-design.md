@@ -1,8 +1,8 @@
 # 6 Years of Us — Anniversary Game Design
 
-**Date:** 2026-05-30  
-**Type:** Browser-based 2D platformer (gift for Mae from Jez)  
-**Engine:** Phaser.js 3  
+**Date:** 2026-05-30
+**Type:** Browser-based 2D platformer (gift for Mae from Jez)
+**Engine:** Phaser.js 3
 **Art:** Kenney New Platformer Pack + custom SVG sprites
 
 ---
@@ -16,12 +16,14 @@ A short 2D platformer love story telling the 6-year journey of Jez and Mae — a
 ## Characters
 
 ### Jez (Player 1)
+
 - **Style:** Kenney astronaut blob — round body, dark helmet ring, small dot eyes, smile
 - **Color:** Pink (`#FF6B9D`)
 - **Accessory:** Pink bow on top of helmet
 - **Role:** Primary playable character in solo levels
 
 ### Mae (Player 2)
+
 - **Style:** Identical Kenney blob
 - **Color:** Purple (`#A855F7`)
 - **Accessory:** Star on top of helmet
@@ -44,18 +46,21 @@ Between chapters: a chapter select / world map screen showing progress dots.
 ## Chapters
 
 ### Chapter 1 — Quarantine Quest *(Cutscene)*
+
 - Two glowing screens in a dark room, chat bubbles floating between them
 - Hearts appear as messages arrive
 - Tone: cozy, warm, nostalgic
 - Setting: 2020, COVID, online
 
 ### Chapter 2 — First Flight *(Playable)*
+
 - Jez runs through an airport level (moving walkways as platforms)
 - Collect: boarding passes, heart stickers
 - Goal: reach Mae at the arrivals gate holding a welcome sign
 - Setting: Mindanao → Manila airport
 
 ### Chapter 3 — The Baguio Quest *(Playable)*
+
 - Both characters run together — Jez is player-controlled, Mae follows as an AI companion
 - Environment: pine forest, mountain paths, Burnham Park boating area
 - Collect: strawberries, flowers (Baguio staples)
@@ -63,6 +68,7 @@ Between chapters: a chapter select / world map screen showing progress dots.
 - Setting: Baguio City
 
 ### Chapter 4 — Long Distance *(Cutscene)*
+
 - Animated map of the Philippines
 - Two blinking dots: Manila and Mindanao
 - Love letters and emoji float slowly between the dots
@@ -70,6 +76,7 @@ Between chapters: a chapter select / world map screen showing progress dots.
 - Setting: LDR period after Baguio
 
 ### Chapter 5 — The Grind *(Playable)*
+
 - Auto-runner: Jez on left half, Mae on right half of screen
 - Each collects coins, dodges bills and stress clouds
 - Shared "Manila Fund" progress bar at top fills as coins collected
@@ -77,6 +84,7 @@ Between chapters: a chapter select / world map screen showing progress dots.
 - Setting: working hard, saving money
 
 ### Chapter 6 — Manila, Finally *(Playable)*
+
 - City platformer level: apartments, food stalls, date spots
 - Both characters run together through the city
 - Collect: apartment keys, ramen bowls, shared memory photos
@@ -84,6 +92,7 @@ Between chapters: a chapter select / world map screen showing progress dots.
 - Setting: Manila, living together
 
 ### Chapter 7 — A Blink of an Eye *(Cutscene)*
+
 - Six memory "frames" flash by, one per year
 - Heart counter ticks up: 1 → 2 → 3 → 4 → 5 → 6
 - Sparkles fill the screen
@@ -91,6 +100,7 @@ Between chapters: a chapter select / world map screen showing progress dots.
 - Setting: present day, 6-year anniversary
 
 ### Chapter 8 — The Final Quest *(Cliffhanger)*
+
 - Golden glowing level, mysterious atmosphere
 - Mae walks toward a glowing chest at the end
 - Chest opens — a ring slowly floats out, spinning
@@ -103,7 +113,7 @@ Between chapters: a chapter select / world map screen showing progress dots.
 ## Tech Stack
 
 | Layer | Choice |
-|-------|--------|
+| --- | --- |
 | Game engine | Phaser.js 3 |
 | Cutscene overlays | Vanilla JS + HTML/CSS |
 | Art assets | Kenney New Platformer Pack (CC0) |
@@ -115,7 +125,7 @@ Between chapters: a chapter select / world map screen showing progress dots.
 
 ## Screen Flow
 
-```
+```text
 Title Screen
     ↓
 Chapter 1 (Cutscene)
