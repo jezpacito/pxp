@@ -13,12 +13,12 @@ export class BaseLevel extends Phaser.Scene {
     this.audio = new AudioManager(this);
     this.audio.playMusic('music-level');
 
-    this._buildGround();
-
-    this._playerGfx = this.add.graphics();
+    this._playerGfx = this.add.graphics().setDepth(1);
     this._player = this.physics.add.image(120, HEIGHT - 120, '__DEFAULT');
     this._player.setVisible(false).setCollideWorldBounds(true);
     this._player.body.setSize(36, 70);
+
+    this._buildGround();
 
     this.cameras.main.setBounds(0, 0, this._levelWidth, HEIGHT);
     this.cameras.main.startFollow(this._player, true, 0.1, 0.1);
@@ -30,6 +30,7 @@ export class BaseLevel extends Phaser.Scene {
     this._goalX = this._levelWidth - 120;
     this._goalReached = false;
 
+    this._buildBackground();
     this._buildLevel();
     this._redrawPlayer();
   }
@@ -47,10 +48,13 @@ export class BaseLevel extends Phaser.Scene {
       tile.x = i * tileW;
       tile.y = HEIGHT - 64;
       const body = this._ground.create(i * tileW + tileW / 2, HEIGHT - 32, '__DEFAULT');
+      body.body.setSize(tileW, 64);
       body.setVisible(false).refreshBody();
     }
     this.physics.add.collider(this._player, this._ground);
   }
+
+  _buildBackground() {}
 
   _buildLevel() {}
 
@@ -112,12 +116,11 @@ export class BaseLevel extends Phaser.Scene {
     this.tweens.add({ targets: text, y: y - 8, duration: 900, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
     const zone = this.physics.add.image(x, y, '__DEFAULT').setVisible(false);
     zone.body.setSize(30, 30).setAllowGravity(false);
-    // Destroy the collider first — otherwise the physics world tries to resolve
-    // it next frame against the now-destroyed zone and throws on 'isParent'.
-    const overlap = this.physics.add.overlap(this._player, zone, () => {
-      overlap.destroy();
+    this.physics.add.overlap(this._player, zone, () => {
+      if (!zone.active) return;
+      zone.setActive(false);
+      zone.body.enable = false;
       text.destroy();
-      zone.destroy();
       this.hud.collect();
       this.audio.sfx('sfx-collect');
     });

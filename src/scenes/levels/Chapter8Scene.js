@@ -21,6 +21,42 @@ export class Chapter8Scene extends BaseLevel {
     });
   }
 
+  _buildBackground() {
+    const hills = (gfx, sf, yBase, color, alpha) => {
+      const w = Math.ceil(WIDTH + (this._levelWidth - WIDTH) * sf) + 200;
+      gfx.fillStyle(color, alpha);
+      gfx.beginPath();
+      gfx.moveTo(-10, HEIGHT + 10);
+      for (let x = 0; x <= w + 10; x += 6) {
+        gfx.lineTo(x, yBase + Math.sin(x*0.010)*20 + Math.sin(x*0.018)*10);
+      }
+      gfx.lineTo(w + 10, HEIGHT + 10);
+      gfx.closePath();
+      gfx.fillPath();
+    };
+
+    // Moon + glow
+    const sf0 = 0.04;
+    const wm = Math.ceil(WIDTH + (this._levelWidth - WIDTH) * sf0) + 200;
+    const gm = this.add.graphics().setScrollFactor(sf0, 1).setDepth(-5);
+    for (let r = 55; r >= 18; r -= 5) {
+      gm.fillStyle(0xff8020, Math.max(0, (55 - r) * 0.007));
+      gm.fillCircle(wm * 0.62, HEIGHT * 0.27, r);
+    }
+    gm.fillStyle(0xffd060, 1);
+    gm.fillCircle(wm * 0.62, HEIGHT * 0.27, 18);
+
+    // Three silhouette hill layers
+    const g1 = this.add.graphics().setScrollFactor(0.10, 1).setDepth(-4);
+    hills(g1, 0.10, HEIGHT * 0.60, 0x3a1500, 0.55);
+
+    const g2 = this.add.graphics().setScrollFactor(0.20, 1).setDepth(-3);
+    hills(g2, 0.20, HEIGHT * 0.63, 0x220c00, 0.75);
+
+    const g3 = this.add.graphics().setScrollFactor(0.33, 1).setDepth(-2);
+    hills(g3, 0.33, HEIGHT * 0.67, 0x140500, 0.92);
+  }
+
   _buildLevel() {
     this._addPlatform(200,  HEIGHT - 160, 120);
     this._addPlatform(420,  HEIGHT - 220, 100);

@@ -22,7 +22,7 @@ export const CHAPTERS = [
   { key: 'Chapter3', type: 'level',    title: 'The Baguio Quest' },
   { key: 'Chapter4', type: 'cutscene', title: 'Long Distance' },
   { key: 'Chapter5', type: 'level',    title: 'The Grind' },
-  { key: 'Chapter6', type: 'level',    title: 'Manila, Finally' },
+  { key: 'Chapter6', type: 'level',    title: 'Luzon, Finally' },
   { key: 'Chapter7', type: 'cutscene', title: 'A Blink of an Eye' },
   { key: 'Chapter8', type: 'level',    title: 'The Final Quest' },
 ];

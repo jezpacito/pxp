@@ -20,6 +20,36 @@ export class Chapter2Scene extends BaseLevel {
     });
   }
 
+  _buildBackground() {
+    const rand = n => Math.abs(Math.sin(n * 127.1 + 311.7) * 43758.5453 % 1);
+    const cloud = (gfx, x, y, s) => {
+      gfx.fillCircle(x,       y,       20*s);
+      gfx.fillCircle(x+18*s,  y-8*s,   16*s);
+      gfx.fillCircle(x-18*s,  y-5*s,   14*s);
+      gfx.fillCircle(x+28*s,  y+4*s,   13*s);
+      gfx.fillCircle(x-26*s,  y+4*s,   11*s);
+      gfx.fillCircle(x+8*s,   y-16*s,  10*s);
+    };
+
+    // Far slow clouds
+    const sf1 = 0.12;
+    const w1 = Math.ceil(WIDTH + (this._levelWidth - WIDTH) * sf1) + 200;
+    const gc1 = this.add.graphics().setScrollFactor(sf1, 1).setDepth(-4);
+    gc1.fillStyle(0xffffff, 0.55);
+    for (let i = 0, x = 50; x < w1; i++, x += 130 + rand(i*3+1)*90) {
+      cloud(gc1, x, 28 + rand(i*7+2)*28, 0.80 + rand(i*11+3)*0.35);
+    }
+
+    // Near faster clouds
+    const sf2 = 0.27;
+    const w2 = Math.ceil(WIDTH + (this._levelWidth - WIDTH) * sf2) + 200;
+    const gc2 = this.add.graphics().setScrollFactor(sf2, 1).setDepth(-3);
+    gc2.fillStyle(0xffffff, 0.78);
+    for (let i = 0, x = 90; x < w2; i++, x += 160 + rand(i*5+13)*100) {
+      cloud(gc2, x, 56 + rand(i*9+5)*22, 0.75 + rand(i*13+7)*0.30);
+    }
+  }
+
   _buildLevel() {
     this._addPlatform(300, HEIGHT - 160, 140);
     this._addPlatform(600, HEIGHT - 220, 120);

@@ -24,7 +24,7 @@ export class Chapter5Scene extends Phaser.Scene {
 
     this.add.rectangle(WIDTH / 2, 55, WIDTH - 40, 20, 0x222244).setOrigin(0.5);
     this._bar = this.add.rectangle(20, 55, 0, 16, 0xFF6B9D).setOrigin(0, 0.5);
-    this.add.text(WIDTH / 2, 55, 'MANILA FUND', { fontFamily: 'monospace', fontSize: '10px', color: '#aaaacc' }).setOrigin(0.5).setDepth(1);
+    this.add.text(WIDTH / 2, 55, 'LUZON FUND', { fontFamily: 'monospace', fontSize: '10px', color: '#aaaacc' }).setOrigin(0.5).setDepth(1);
 
     this.add.rectangle(WIDTH / 4,     HEIGHT - 40, WIDTH / 2 - 20, 12, COLORS.GROUND);
     this.add.rectangle(WIDTH * 3 / 4, HEIGHT - 40, WIDTH / 2 - 20, 12, COLORS.GROUND);
