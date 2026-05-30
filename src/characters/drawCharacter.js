@@ -51,8 +51,7 @@ export function drawCharacter(gfx, who, x, y, scale = 1) {
 
   gfx.lineStyle(3 * s, 0x444444);
   gfx.beginPath();
-  gfx.moveTo(x - 8 * s, y - 44 * s);
-  gfx.bezierCurveTo(x - 4 * s, y - 40 * s, x + 4 * s, y - 40 * s, x + 8 * s, y - 44 * s);
+  gfx.arc(x, y - 47 * s, 9 * s, 0.3, Math.PI - 0.3, false);
   gfx.strokePath();
 
   if (cfg.accessory === 'bow') {
