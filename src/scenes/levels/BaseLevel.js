@@ -112,7 +112,10 @@ export class BaseLevel extends Phaser.Scene {
     this.tweens.add({ targets: text, y: y - 8, duration: 900, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
     const zone = this.physics.add.image(x, y, '__DEFAULT').setVisible(false);
     zone.body.setSize(30, 30).setAllowGravity(false);
-    this.physics.add.overlap(this._player, zone, () => {
+    // Destroy the collider first — otherwise the physics world tries to resolve
+    // it next frame against the now-destroyed zone and throws on 'isParent'.
+    const overlap = this.physics.add.overlap(this._player, zone, () => {
+      overlap.destroy();
       text.destroy();
       zone.destroy();
       this.hud.collect();
