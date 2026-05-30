@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenney Characters</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0d0d1a; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 32px 20px; gap: 20px; }
+  h2 { font-size: 1.4rem; text-align: center; }
+  .subtitle { color: #aaa; font-size: 0.9rem; text-align: center; }
+
+  .scene {
+    background: linear-gradient(180deg, #aee4ff 0%, #d6f0ff 52%, #e8a05a 52%, #c97c3a 100%);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 720px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #b06020;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .tile {
+    position: absolute; bottom: 0;
+    width: 64px; height: 64px;
+    background: #e8a05a;
+    border-top: 5px solid #f5c07a;
+    border-left: 3px solid #f5c07a;
+    border-right: 3px solid #a05820;
+    border-bottom: 3px solid #a05820;
+  }
+  .platform {
+    position: absolute; height: 22px;
+    background: #e8a05a;
+    border-radius: 10px;
+    border-top: 5px solid #f5c07a;
+    border-left: 3px solid #f5c07a;
+    border-right: 3px solid #a05820;
+    border-bottom: 3px solid #a05820;
+  }
+  .cloud { position: absolute; background: white; border-radius: 50px; }
+
+  .nametag {
+    font-size: 12px; font-weight: bold; letter-spacing: 1px;
+    background: rgba(0,0,0,0.5); border-radius: 12px; padding: 3px 10px;
+    margin-top: 4px;
+  }
+
+  @keyframes idle  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+  @keyframes idle2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+  @keyframes pulse { 0%,100%{transform:translateX(-50%) scale(1)} 50%{transform:translateX(-50%) scale(1.25)} }
+  @keyframes twinkle { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .options { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; max-width: 720px; }
+  .option { background: #1a1a2e; border: 2px solid #2a2a4a; border-radius: 14px; padding: 12px 18px; cursor: pointer; transition: border-color 0.15s, transform 0.12s; text-align: center; min-width: 120px; }
+  .option:hover { border-color: #ff6b9d; transform: translateY(-2px); }
+  .option.selected { border-color: #ff6b9d; box-shadow: 0 0 0 3px rgba(255,107,157,0.3); }
+  .option h4 { font-size: 0.85rem; margin-bottom: 3px; }
+  .option p { font-size: 0.72rem; color: #aaa; }
+</style>
+</head>
+<body>
+
+<h2>Jez & Mae — Kenney Style! 🩷💜</h2>
+<p class="subtitle">Same astronaut character from the image, two colors</p>
+
+<div class="scene">
+  <!-- clouds -->
+  <div class="cloud" style="width:90px;height:26px;top:20px;left:25px;"></div>
+  <div class="cloud" style="width:55px;height:18px;top:16px;left:65px;"></div>
+  <div class="cloud" style="width:100px;height:30px;top:22px;right:45px;"></div>
+  <div class="cloud" style="width:50px;height:16px;top:15px;right:38px;"></div>
+
+  <!-- platform -->
+  <div class="platform" style="width:140px;bottom:118px;left:50%;transform:translateX(-50%);"></div>
+  <!-- star -->
+  <div style="position:absolute;bottom:142px;left:50%;transform:translateX(-50%);font-size:20px;animation:twinkle 1.4s ease-in-out infinite;">⭐</div>
+
+  <!-- heart -->
+  <div style="position:absolute;bottom:82px;left:50%;font-size:26px;animation:pulse 1.3s ease-in-out infinite;z-index:5;">💕</div>
+
+  <!-- ground -->
+  <div class="tile" style="left:0;"></div><div class="tile" style="left:64px;"></div>
+  <div class="tile" style="left:128px;"></div><div class="tile" style="left:192px;"></div>
+  <div class="tile" style="left:256px;"></div><div class="tile" style="left:320px;"></div>
+  <div class="tile" style="left:384px;"></div><div class="tile" style="left:448px;"></div>
+  <div class="tile" style="left:512px;"></div><div class="tile" style="left:576px;"></div>
+  <div class="tile" style="left:640px;"></div>
+
+  <!-- JEZ (pink suit) -->
+  <div style="position:absolute;bottom:64px;left:140px;display:flex;flex-direction:column;align-items:center;animation:idle 1.8s ease-in-out infinite;">
+    <svg width="72" height="80" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+      <!-- shadow -->
+      <ellipse cx="36" cy="78" rx="18" ry="4" fill="rgba(0,0,0,0.18)"/>
+      <!-- left arm -->
+      <ellipse cx="10" cy="50" rx="7" ry="5" fill="#FF6B9D" stroke="#C43070" stroke-width="2.5" transform="rotate(-30 10 50)"/>
+      <!-- right arm -->
+      <ellipse cx="62" cy="50" rx="7" ry="5" fill="#FF6B9D" stroke="#C43070" stroke-width="2.5" transform="rotate(30 62 50)"/>
+      <!-- body (round suit) -->
+      <ellipse cx="36" cy="52" rx="22" ry="20" fill="#FF6B9D" stroke="#C43070" stroke-width="3"/>
+      <!-- suit belly circle -->
+      <ellipse cx="36" cy="55" rx="13" ry="11" fill="#FF3D7F" stroke="#C43070" stroke-width="2"/>
+      <!-- left foot -->
+      <ellipse cx="24" cy="70" rx="9" ry="5" fill="#FF6B9D" stroke="#C43070" stroke-width="2.5"/>
+      <!-- right foot -->
+      <ellipse cx="48" cy="70" rx="9" ry="5" fill="#FF6B9D" stroke="#C43070" stroke-width="2.5"/>
+      <!-- helmet ring (dark outer) -->
+      <circle cx="36" cy="30" r="22" fill="#333" stroke="#111" stroke-width="2"/>
+      <!-- helmet visor (white face area) -->
+      <circle cx="36" cy="30" r="18" fill="#f9e8d0" stroke="#555" stroke-width="1.5"/>
+      <!-- helmet glare -->
+      <ellipse cx="28" cy="20" rx="6" ry="4" fill="rgba(255,255,255,0.25)" transform="rotate(-20 28 20)"/>
+      <!-- left eye -->
+      <ellipse cx="27" cy="30" rx="5.5" ry="6" fill="white"/>
+      <circle cx="27" cy="30" r="3.5" fill="#222"/>
+      <circle cx="28.5" cy="28.5" r="1.5" fill="white"/>
+      <!-- right eye -->
+      <ellipse cx="45" cy="30" rx="5.5" ry="6" fill="white"/>
+      <circle cx="45" cy="30" r="3.5" fill="#222"/>
+      <circle cx="46.5" cy="28.5" r="1.5" fill="white"/>
+      <!-- blush -->
+      <ellipse cx="19" cy="35" rx="5" ry="3" fill="#FF9DC8" opacity="0.65"/>
+      <ellipse cx="53" cy="35" rx="5" ry="3" fill="#FF9DC8" opacity="0.65"/>
+      <!-- smile -->
+      <path d="M28 38 Q36 44 44 38" stroke="#555" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- bow on helmet -->
+      <path d="M27 10 L33 14 L27 18 Z" fill="#FF3D7F" stroke="#C43070" stroke-width="1.5"/>
+      <path d="M45 10 L39 14 L45 18 Z" fill="#FF3D7F" stroke="#C43070" stroke-width="1.5"/>
+      <circle cx="36" cy="14" r="3.5" fill="#FFB3D1" stroke="#C43070" stroke-width="1.5"/>
+    </svg>
+    <div class="nametag" style="color:#ff9dc8;">JEZ</div>
+  </div>
+
+  <!-- MAE (purple suit) -->
+  <div style="position:absolute;bottom:64px;right:140px;display:flex;flex-direction:column;align-items:center;animation:idle2 2s ease-in-out infinite;animation-delay:0.5s;">
+    <svg width="72" height="80" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+      <!-- shadow -->
+      <ellipse cx="36" cy="78" rx="18" ry="4" fill="rgba(0,0,0,0.18)"/>
+      <!-- left arm -->
+      <ellipse cx="10" cy="50" rx="7" ry="5" fill="#C084FC" stroke="#7E22CE" stroke-width="2.5" transform="rotate(-30 10 50)"/>
+      <!-- right arm -->
+      <ellipse cx="62" cy="50" rx="7" ry="5" fill="#C084FC" stroke="#7E22CE" stroke-width="2.5" transform="rotate(30 62 50)"/>
+      <!-- body -->
+      <ellipse cx="36" cy="52" rx="22" ry="20" fill="#C084FC" stroke="#7E22CE" stroke-width="3"/>
+      <!-- suit belly circle -->
+      <ellipse cx="36" cy="55" rx="13" ry="11" fill="#9333EA" stroke="#7E22CE" stroke-width="2"/>
+      <!-- left foot -->
+      <ellipse cx="24" cy="70" rx="9" ry="5" fill="#C084FC" stroke="#7E22CE" stroke-width="2.5"/>
+      <!-- right foot -->
+      <ellipse cx="48" cy="70" rx="9" ry="5" fill="#C084FC" stroke="#7E22CE" stroke-width="2.5"/>
+      <!-- helmet ring -->
+      <circle cx="36" cy="30" r="22" fill="#333" stroke="#111" stroke-width="2"/>
+      <!-- visor -->
+      <circle cx="36" cy="30" r="18" fill="#f9e8d0" stroke="#555" stroke-width="1.5"/>
+      <!-- glare -->
+      <ellipse cx="28" cy="20" rx="6" ry="4" fill="rgba(255,255,255,0.25)" transform="rotate(-20 28 20)"/>
+      <!-- left eye -->
+      <ellipse cx="27" cy="30" rx="5.5" ry="6" fill="white"/>
+      <circle cx="27" cy="30" r="3.5" fill="#222"/>
+      <circle cx="28.5" cy="28.5" r="1.5" fill="white"/>
+      <!-- right eye -->
+      <ellipse cx="45" cy="30" rx="5.5" ry="6" fill="white"/>
+      <circle cx="45" cy="30" r="3.5" fill="#222"/>
+      <circle cx="46.5" cy="28.5" r="1.5" fill="white"/>
+      <!-- blush -->
+      <ellipse cx="19" cy="35" rx="5" ry="3" fill="#D8B4FE" opacity="0.7"/>
+      <ellipse cx="53" cy="35" rx="5" ry="3" fill="#D8B4FE" opacity="0.7"/>
+      <!-- smile -->
+      <path d="M28 38 Q36 44 44 38" stroke="#555" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- little horns on helmet -->
+      <ellipse cx="25" cy="11" rx="4" ry="7" fill="#C084FC" stroke="#7E22CE" stroke-width="2" transform="rotate(-15 25 11)"/>
+      <ellipse cx="47" cy="11" rx="4" ry="7" fill="#C084FC" stroke="#7E22CE" stroke-width="2" transform="rotate(15 47 11)"/>
+    </svg>
+    <div class="nametag" style="color:#d8b4fe;">MAE</div>
+  </div>
+
+</div>
+
+<p class="subtitle">Same Kenney astronaut style — pink for Jez 🩷 purple for Mae 💜</p>
+<p class="subtitle" style="margin-top:4px;">Happy with this? Or want to tweak colors / accessories?</p>
+
+<script>
+// send confirmation
+try { fetch('/__select',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({choice:'kenney-astronaut-confirmed'})}); } catch(e){}
+</script>
+</body>
+</html>

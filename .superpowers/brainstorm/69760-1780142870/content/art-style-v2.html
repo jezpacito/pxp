@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anniversary Game — Style Direction</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0d0d1a; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 32px 20px; }
+
+  h2 { font-size: 1.4rem; text-align: center; color: #fff; margin-bottom: 6px; }
+  .subtitle { color: #aaa; font-size: 0.9rem; text-align: center; margin-bottom: 28px; }
+
+  .cards { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; width: 100%; max-width: 960px; }
+
+  .card {
+    background: #1a1a2e;
+    border: 2px solid #2a2a4a;
+    border-radius: 16px;
+    overflow: hidden;
+    width: 280px;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: #ff6b9d; box-shadow: 0 8px 32px rgba(255,107,157,0.2); }
+  .card.selected { border-color: #ff6b9d; box-shadow: 0 0 0 3px rgba(255,107,157,0.4); }
+
+  .card-preview { height: 180px; position: relative; overflow: hidden; }
+  .card-body { padding: 16px; }
+  .card-body h3 { font-size: 1rem; color: #fff; margin-bottom: 6px; }
+  .card-body p { font-size: 0.8rem; color: #aaa; line-height: 1.5; }
+
+  .badge { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.6); color: #ff6b9d; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 20px; letter-spacing: 1px; }
+  .rec-badge { background: #ff6b9d; color: #fff; }
+
+  /* ── STYLE A: Kenney Platformer ── */
+  .preview-kenney {
+    background: linear-gradient(180deg, #87ceeb 0%, #b0e0ff 60%, #5cb85c 60%, #4a8f3f 100%);
+    display: flex; align-items: flex-end; justify-content: center; gap: 8px; padding: 0 16px 0;
+  }
+  .ground-block { width: 44px; height: 44px; border-radius: 6px; flex-shrink: 0; position: relative; }
+  .block-grass { background: #5cb85c; border-top: 3px solid #6dcc6d; border-left: 2px solid #6dcc6d; border-right: 2px solid #3a7a30; border-bottom: 2px solid #3a7a30; }
+  .block-brick { background: #cc7744; border-top: 2px solid #dd8855; border-left: 2px solid #dd8855; border-right: 2px solid #aa5533; border-bottom: 2px solid #aa5533; }
+  .block-coin { background: #ffd700; border-radius: 50% !important; width: 24px; height: 24px; border: 3px solid #ffaa00; align-self: flex-start; margin-top: 20px; animation: bob 1s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+  .char-kenney { position: relative; margin-bottom: 44px; }
+  .char-body { width: 28px; height: 36px; border-radius: 6px 6px 4px 4px; }
+  .char-head { width: 28px; height: 26px; border-radius: 50%; position: absolute; top: -22px; left: 0; }
+  .char-eye { width: 5px; height: 5px; background: #fff; border-radius: 50%; position: absolute; top: 10px; }
+  .char-eye.l { left: 6px; } .char-eye.r { right: 6px; }
+  .char-dot { width: 3px; height: 3px; background: #333; border-radius: 50%; position: absolute; top: 12px; }
+  .char-dot.l { left: 7px; } .char-dot.r { right: 7px; }
+
+  .platform-float { background: #5cb85c; border-radius: 6px; height: 14px; width: 80px; position: absolute; top: 60px; left: 50%; transform: translateX(-50%); border-top: 3px solid #6dcc6d; }
+  .heart-float { position: absolute; top: 30px; left: 50%; transform: translateX(-50%); font-size: 20px; animation: bob 1.2s ease-in-out infinite; }
+
+  /* ── STYLE B: Soft Illustrated ── */
+  .preview-soft {
+    background: linear-gradient(180deg, #ffeef8 0%, #fff0fb 50%, #e8f8f0 50%, #d4f0e0 100%);
+    display: flex; align-items: flex-end; justify-content: center; padding: 10px 20px 0; gap: 20px;
+  }
+  .soft-char { display: flex; flex-direction: column; align-items: center; margin-bottom: 0; }
+  .soft-head { width: 48px; height: 48px; border-radius: 50%; position: relative; }
+  .soft-eye { width: 7px; height: 9px; background: #333; border-radius: 50%; position: absolute; top: 16px; }
+  .soft-eye.l { left: 10px; } .soft-eye.r { right: 10px; }
+  .soft-blush { width: 10px; height: 6px; border-radius: 50%; position: absolute; top: 26px; background: rgba(255,150,150,0.5); }
+  .soft-blush.l { left: 6px; } .soft-blush.r { right: 6px; }
+  .soft-body { width: 44px; height: 50px; border-radius: 12px 12px 8px 8px; margin-top: -4px; }
+  .soft-name { font-size: 10px; font-weight: bold; margin-top: 4px; margin-bottom: 8px; }
+  .soft-heart { font-size: 32px; margin-bottom: 30px; align-self: center; animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.2)} }
+  .soft-ground { position: absolute; bottom: 0; left: 0; right: 0; height: 30px; background: linear-gradient(#d4f0e0, #b8dfc8); }
+
+  /* ── STYLE C: Night / Cozy ── */
+  .preview-night {
+    background: linear-gradient(180deg, #0a0a1f 0%, #1a1a3e 60%, #2d1b4e 80%, #1a0a2e 100%);
+    position: relative; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 0;
+  }
+  .star { position: absolute; background: #fff; border-radius: 50%; animation: twinkle 2s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100%{opacity:1} 50%{opacity:0.2} }
+  .moon { position: absolute; top: 14px; right: 30px; width: 28px; height: 28px; border-radius: 50%; background: #ffe066; box-shadow: 0 0 12px #ffe066; }
+  .night-ground { position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: linear-gradient(#2d1b4e, #1a0a2e); border-top: 2px solid #4a2a6e; }
+  .night-plat { position: absolute; border-radius: 6px; height: 12px; background: linear-gradient(#7c4dbd, #5a2e9e); border-top: 2px solid #9d6de0; }
+  .night-char { position: absolute; bottom: 38px; display: flex; flex-direction: column; align-items: center; }
+  .night-head { width: 26px; height: 26px; border-radius: 50%; }
+  .night-body { width: 24px; height: 30px; border-radius: 5px 5px 3px 3px; margin-top: -3px; }
+  .night-glow { width: 40px; height: 40px; border-radius: 50%; position: absolute; background: radial-gradient(circle, rgba(255,107,157,0.3) 0%, transparent 70%); top: -6px; left: -7px; }
+  .night-heart { position: absolute; font-size: 14px; animation: float 2s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0) scale(1);opacity:1} 100%{transform:translateY(-30px) scale(0.5);opacity:0} }
+
+  .select-indicator { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ff6b9d; color: #fff; padding: 10px 24px; border-radius: 24px; font-weight: bold; font-size: 0.85rem; display: none; box-shadow: 0 4px 16px rgba(255,107,157,0.5); }
+  .select-indicator.visible { display: block; }
+</style>
+</head>
+<body>
+
+<h2>Which visual style feels most like you two? 🎮💕</h2>
+<p class="subtitle">Using Kenney's New Platformer Pack as the base — pick the mood that fits best</p>
+
+<div class="cards">
+
+  <!-- A: Kenney Bright Platformer -->
+  <div class="card" onclick="select(this,'kenney')">
+    <div class="card-preview preview-kenney">
+      <div class="badge rec-badge">✨ RECOMMENDED</div>
+      <div class="platform-float"></div>
+      <div class="heart-float">💕</div>
+
+      <!-- Char Jez -->
+      <div class="char-kenney" style="position:relative;margin-bottom:44px;">
+        <div class="char-body" style="background:#ff6b9d;"></div>
+        <div class="char-head" style="background:#f9c784;">
+          <div class="char-eye l"></div><div class="char-eye r"></div>
+          <div class="char-dot l"></div><div class="char-dot r"></div>
+        </div>
+        <div style="position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-size:9px;color:#fff;font-weight:bold;white-space:nowrap;">JEZ</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:44px;align-self:flex-end;">
+        <div class="ground-block block-brick"></div>
+        <div class="block-coin"></div>
+      </div>
+
+      <!-- Char Mae -->
+      <div class="char-kenney" style="position:relative;margin-bottom:44px;">
+        <div class="char-body" style="background:#c084fc;"></div>
+        <div class="char-head" style="background:#f9c784;">
+          <div class="char-eye l"></div><div class="char-eye r"></div>
+          <div class="char-dot l"></div><div class="char-dot r"></div>
+        </div>
+        <div style="position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-size:9px;color:#fff;font-weight:bold;white-space:nowrap;">MAE</div>
+      </div>
+
+      <div class="ground-block block-grass" style="position:absolute;bottom:0;left:0;right:0;width:100%;height:44px;border-radius:0;"></div>
+    </div>
+    <div class="card-body">
+      <h3>Bright Kenney Platformer</h3>
+      <p>Colorful, clean, and playful. Kenney sprites + classic Mario-style side-scroller. Each chapter = a level. Cheerful and energetic — great for your story's adventurous tone.</p>
+    </div>
+  </div>
+
+  <!-- B: Soft Pastel -->
+  <div class="card" onclick="select(this,'soft')">
+    <div class="card-preview preview-soft" style="position:relative;">
+      <div class="badge">SOFT</div>
+
+      <!-- Jez -->
+      <div class="soft-char">
+        <div class="soft-head" style="background:#f9c784;">
+          <div class="soft-eye l"></div><div class="soft-eye r"></div>
+          <div class="soft-blush l"></div><div class="soft-blush r"></div>
+        </div>
+        <div class="soft-body" style="background:#ff6b9d;"></div>
+        <div class="soft-name" style="color:#e91e63;">JEZ</div>
+      </div>
+
+      <div class="soft-heart">💗</div>
+
+      <!-- Mae -->
+      <div class="soft-char">
+        <div class="soft-head" style="background:#f9c784;">
+          <div class="soft-eye l"></div><div class="soft-eye r"></div>
+          <div class="soft-blush l"></div><div class="soft-blush r"></div>
+        </div>
+        <div class="soft-body" style="background:#c084fc;"></div>
+        <div class="soft-name" style="color:#9c27b0;">MAE</div>
+      </div>
+
+      <div class="soft-ground"></div>
+    </div>
+    <div class="card-body">
+      <h3>Soft Pastel Story</h3>
+      <p>Gentle pinks and purples, rounder characters, dreamy atmosphere. More visual-novel feel with light platformer elements. Cozy and romantic.</p>
+    </div>
+  </div>
+
+  <!-- C: Night / Cozy -->
+  <div class="card" onclick="select(this,'night')">
+    <div class="card-preview preview-night">
+      <div class="badge">COZY</div>
+      <div class="moon"></div>
+      <div class="star" style="width:3px;height:3px;top:20px;left:20px;animation-delay:0s;"></div>
+      <div class="star" style="width:2px;height:2px;top:35px;left:60px;animation-delay:0.5s;"></div>
+      <div class="star" style="width:3px;height:3px;top:15px;left:100px;animation-delay:1s;"></div>
+      <div class="star" style="width:2px;height:2px;top:40px;left:150px;animation-delay:0.3s;"></div>
+      <div class="star" style="width:3px;height:3px;top:25px;left:200px;animation-delay:0.8s;"></div>
+      <div class="star" style="width:2px;height:2px;top:10px;left:240px;animation-delay:1.2s;"></div>
+
+      <div class="night-plat" style="width:100px;bottom:80px;left:20px;"></div>
+      <div class="night-plat" style="width:70px;bottom:110px;right:20px;"></div>
+
+      <!-- Chars -->
+      <div class="night-char" style="left:40px;">
+        <div class="night-glow"></div>
+        <div class="night-head" style="background:#f9c784;"></div>
+        <div class="night-body" style="background:#ff6b9d;"></div>
+      </div>
+      <div class="night-char" style="right:40px;bottom:50px;">
+        <div class="night-glow" style="background:radial-gradient(circle, rgba(192,132,252,0.3) 0%, transparent 70%);"></div>
+        <div class="night-head" style="background:#f9c784;"></div>
+        <div class="night-body" style="background:#c084fc;"></div>
+      </div>
+
+      <div class="night-heart" style="left:120px;top:40px;animation-delay:0s;">💜</div>
+      <div class="night-heart" style="left:150px;top:60px;animation-delay:0.6s;font-size:10px;">✨</div>
+
+      <div class="night-ground"></div>
+    </div>
+    <div class="card-body">
+      <h3>Night / Cozy Adventure</h3>
+      <p>Deep purples, glowing elements, moody and romantic. Evening aesthetic — like your story told under stars. More atmospheric and cinematic feeling.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="select-indicator" id="indicator"></div>
+
+<script>
+let selected = null;
+function select(el, choice) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selected = choice;
+  const labels = { kenney: 'A — Bright Kenney Platformer', soft: 'B — Soft Pastel Story', night: 'C — Night Cozy Adventure' };
+  const ind = document.getElementById('indicator');
+  ind.textContent = '✓ Selected: ' + labels[choice] + ' — reply in terminal to confirm';
+  ind.classList.add('visible');
+  try {
+    fetch('/__select', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({choice, text: labels[choice]}) });
+  } catch(e) {}
+}
+</script>
+</body>
+</html>

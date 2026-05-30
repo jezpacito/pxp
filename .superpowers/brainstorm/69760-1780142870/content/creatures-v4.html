@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Octopus Characters</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0d0d1a; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 32px 20px; gap: 24px; }
+  h2 { font-size: 1.4rem; text-align: center; }
+  .subtitle { color: #aaa; font-size: 0.9rem; text-align: center; }
+
+  .scene {
+    background: linear-gradient(180deg, #b8e4ff 0%, #d9f0ff 50%, #5cb85c 50%, #4a8f3f 100%);
+    border-radius: 20px;
+    width: 100%; max-width: 720px; height: 300px;
+    position: relative; overflow: hidden;
+    border: 4px solid #333;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+  .cloud { position: absolute; background: white; border-radius: 50px; }
+  .tile {
+    position: absolute; bottom: 0; width: 64px; height: 64px;
+    background: #5cb85c;
+    border-top: 5px solid #7dcc7d; border-left: 3px solid #7dcc7d;
+    border-right: 3px solid #3a7a30; border-bottom: 3px solid #3a7a30;
+  }
+  .platform {
+    position: absolute; height: 22px; background: #5cb85c; border-radius: 10px;
+    border-top: 5px solid #7dcc7d; border-left: 3px solid #7dcc7d;
+    border-right: 3px solid #3a7a30; border-bottom: 3px solid #3a7a30;
+  }
+  .nametag {
+    font-size: 12px; font-weight: bold; letter-spacing: 1px;
+    background: rgba(0,0,0,0.55); border-radius: 12px; padding: 3px 12px;
+    margin-top: 4px;
+  }
+
+  @keyframes idle  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+  @keyframes idle2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  @keyframes wiggle { 0%,100%{transform:rotate(0deg)} 25%{transform:rotate(8deg)} 75%{transform:rotate(-8deg)} }
+  @keyframes pulse { 0%,100%{transform:translateX(-50%) scale(1)} 50%{transform:translateX(-50%) scale(1.25)} }
+  @keyframes coin  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+  /* big preview for just the two characters side by side */
+  .char-showcase {
+    display: flex; gap: 60px; justify-content: center; align-items: flex-end;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, #1a1a2e, #2a1a3e);
+    border-radius: 20px; width: 100%; max-width: 500px;
+    border: 2px solid #2a2a4a;
+  }
+  .char-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .char-item svg { filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
+</style>
+</head>
+<body>
+
+<h2>Jez & Mae — Cute Octopus Style! 🐙💕</h2>
+<p class="subtitle">Round head, big eyes, wavy tentacles — like the green one from the Kenney pack</p>
+
+<!-- BIG CLOSE-UP of the two characters -->
+<div class="char-showcase">
+
+  <!-- JEZ octopus (pink) -->
+  <div class="char-item" style="animation: idle 1.8s ease-in-out infinite;">
+    <svg width="120" height="140" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- tentacles (behind body, wavy) -->
+      <!-- tentacle 1 -->
+      <path d="M30 95 Q22 108 28 122 Q34 136 28 140" stroke="#FF6B9D" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <!-- tentacle 2 -->
+      <path d="M45 100 Q40 114 44 128 Q48 140 42 144" stroke="#FF6B9D" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <!-- tentacle 3 -->
+      <path d="M60 102 Q60 116 60 130 Q60 140 60 144" stroke="#FF6B9D" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <!-- tentacle 4 -->
+      <path d="M75 100 Q80 114 76 128 Q72 140 78 144" stroke="#FF6B9D" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <!-- tentacle 5 -->
+      <path d="M90 95 Q98 108 92 122 Q86 136 92 140" stroke="#FF6B9D" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+      <!-- tentacle outlines -->
+      <path d="M30 95 Q22 108 28 122 Q34 136 28 140" stroke="#222" stroke-width="13" fill="none" stroke-linecap="round" opacity="0.25"/>
+      <path d="M45 100 Q40 114 44 128 Q48 140 42 144" stroke="#222" stroke-width="13" fill="none" stroke-linecap="round" opacity="0.25"/>
+      <path d="M60 102 Q60 116 60 130 Q60 140 60 144" stroke="#222" stroke-width="13" fill="none" stroke-linecap="round" opacity="0.25"/>
+      <path d="M75 100 Q80 114 76 128 Q72 140 78 144" stroke="#222" stroke-width="13" fill="none" stroke-linecap="round" opacity="0.25"/>
+      <path d="M90 95 Q98 108 92 122 Q86 136 92 140" stroke="#222" stroke-width="13" fill="none" stroke-linecap="round" opacity="0.25"/>
+
+      <!-- MAIN BODY / HEAD (big round blob) -->
+      <circle cx="60" cy="60" r="52" fill="#FF6B9D" stroke="#222" stroke-width="4"/>
+
+      <!-- belly (lighter circle) -->
+      <ellipse cx="60" cy="68" rx="32" ry="28" fill="#FFB3D1" opacity="0.55"/>
+
+      <!-- BOW on top -->
+      <path d="M40 14 L58 22 L40 30 Z" fill="#FF3D7F" stroke="#222" stroke-width="2.5"/>
+      <path d="M80 14 L62 22 L80 30 Z" fill="#FF3D7F" stroke="#222" stroke-width="2.5"/>
+      <circle cx="60" cy="22" r="7" fill="#FFB3D1" stroke="#222" stroke-width="2.5"/>
+
+      <!-- LEFT EYE (big cute oval) -->
+      <ellipse cx="40" cy="58" rx="12" ry="14" fill="white" stroke="#222" stroke-width="3"/>
+      <circle cx="40" cy="60" r="8" fill="#222"/>
+      <circle cx="43" cy="56" r="3.5" fill="white"/>
+      <!-- extra sparkle -->
+      <circle cx="37" cy="63" r="1.5" fill="white" opacity="0.6"/>
+
+      <!-- RIGHT EYE -->
+      <ellipse cx="80" cy="58" rx="12" ry="14" fill="white" stroke="#222" stroke-width="3"/>
+      <circle cx="80" cy="60" r="8" fill="#222"/>
+      <circle cx="83" cy="56" r="3.5" fill="white"/>
+      <circle cx="77" cy="63" r="1.5" fill="white" opacity="0.6"/>
+
+      <!-- blush circles -->
+      <ellipse cx="24" cy="70" rx="9" ry="5.5" fill="#FF9DC8" opacity="0.6"/>
+      <ellipse cx="96" cy="70" rx="9" ry="5.5" fill="#FF9DC8" opacity="0.6"/>
+
+      <!-- little smile (just a small curve, not human) -->
+      <path d="M50 80 Q60 87 70 80" stroke="#C43070" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    </svg>
+    <div class="nametag" style="color:#ff9dc8; font-size:14px;">JEZ</div>
+  </div>
+
+  <!-- MAE octopus (purple) -->
+  <div class="char-item" style="animation: idle2 2s ease-in-out infinite; animation-delay: 0.5s;">
+    <svg width="120" height="140" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- tentacles -->
+      <path d="M30 95 Q22 108 28 122 Q34 136 28 140" stroke="#C084FC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M45 100 Q40 114 44 128 Q48 140 42 144" stroke="#C084FC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M60 102 Q60 116 60 130 Q60 140 60 144" stroke="#C084FC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M75 100 Q80 114 76 128 Q72 140 78 144" stroke="#C084FC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M90 95 Q98 108 92 122 Q86 136 92 140" stroke="#C084FC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <!-- tentacle shadows -->
+      <path d="M30 95 Q22 108 28 122 Q34 136 28 140" stroke="#222" stroke-width="13" fill="none" stroke-linecap="round" opacity="0.25"/>
+      <path d="M45 100 Q40 114 44 128 Q48 140 42 144" stroke="#222" stroke-width="13" fill="none" stroke-linecap="round" opacity="0.25"/>
+      <path d="M60 102 Q60 116 60 130 Q60 140 60 144" stroke="#222" stroke-width="13" fill="none" stroke-linecap="round" opacity="0.25"/>
+      <path d="M75 100 Q80 114 76 128 Q72 140 78 144" stroke="#222" stroke-width="13" fill="none" stroke-linecap="round" opacity="0.25"/>
+      <path d="M90 95 Q98 108 92 122 Q86 136 92 140" stroke="#222" stroke-width="13" fill="none" stroke-linecap="round" opacity="0.25"/>
+
+      <!-- main body -->
+      <circle cx="60" cy="60" r="52" fill="#C084FC" stroke="#222" stroke-width="4"/>
+
+      <!-- belly -->
+      <ellipse cx="60" cy="68" rx="32" ry="28" fill="#E9D5FF" opacity="0.55"/>
+
+      <!-- little horns on top -->
+      <ellipse cx="38" cy="15" rx="8" ry="13" fill="#C084FC" stroke="#222" stroke-width="3" transform="rotate(-15 38 15)"/>
+      <ellipse cx="82" cy="15" rx="8" ry="13" fill="#C084FC" stroke="#222" stroke-width="3" transform="rotate(15 82 15)"/>
+      <!-- horn tips -->
+      <ellipse cx="36" cy="8"  rx="4" ry="5" fill="#E9D5FF" stroke="#222" stroke-width="1.5" transform="rotate(-15 36 8)"/>
+      <ellipse cx="84" cy="8"  rx="4" ry="5" fill="#E9D5FF" stroke="#222" stroke-width="1.5" transform="rotate(15 84 8)"/>
+
+      <!-- LEFT EYE -->
+      <ellipse cx="40" cy="58" rx="12" ry="14" fill="white" stroke="#222" stroke-width="3"/>
+      <circle cx="40" cy="60" r="8" fill="#222"/>
+      <circle cx="43" cy="56" r="3.5" fill="white"/>
+      <circle cx="37" cy="63" r="1.5" fill="white" opacity="0.6"/>
+
+      <!-- RIGHT EYE -->
+      <ellipse cx="80" cy="58" rx="12" ry="14" fill="white" stroke="#222" stroke-width="3"/>
+      <circle cx="80" cy="60" r="8" fill="#222"/>
+      <circle cx="83" cy="56" r="3.5" fill="white"/>
+      <circle cx="77" cy="63" r="1.5" fill="white" opacity="0.6"/>
+
+      <!-- blush -->
+      <ellipse cx="24" cy="70" rx="9" ry="5.5" fill="#D8B4FE" opacity="0.65"/>
+      <ellipse cx="96" cy="70" rx="9" ry="5.5" fill="#D8B4FE" opacity="0.65"/>
+
+      <!-- smile -->
+      <path d="M50 80 Q60 87 70 80" stroke="#7E22CE" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    </svg>
+    <div class="nametag" style="color:#d8b4fe; font-size:14px;">MAE</div>
+  </div>
+
+</div>
+
+<!-- in-game scene -->
+<div class="scene">
+  <div class="cloud" style="width:100px;height:30px;top:20px;left:20px;"></div>
+  <div class="cloud" style="width:65px;height:20px;top:14px;left:55px;"></div>
+  <div class="cloud" style="width:110px;height:32px;top:18px;right:35px;"></div>
+
+  <div class="platform" style="width:130px;bottom:120px;left:50%;transform:translateX(-50%);"></div>
+  <div style="position:absolute;bottom:144px;left:50%;transform:translateX(-50%);font-size:22px;animation:coin 1.2s ease-in-out infinite;">⭐</div>
+  <div style="position:absolute;bottom:78px;left:50%;font-size:26px;animation:pulse 1.3s ease-in-out infinite;z-index:5;">💕</div>
+
+  <div class="tile" style="left:0;"></div><div class="tile" style="left:64px;"></div>
+  <div class="tile" style="left:128px;"></div><div class="tile" style="left:192px;"></div>
+  <div class="tile" style="left:256px;"></div><div class="tile" style="left:320px;"></div>
+  <div class="tile" style="left:384px;"></div><div class="tile" style="left:448px;"></div>
+  <div class="tile" style="left:512px;"></div><div class="tile" style="left:576px;"></div>
+  <div class="tile" style="left:640px;"></div>
+
+  <!-- jez in scene (smaller) -->
+  <div style="position:absolute;bottom:64px;left:130px;display:flex;flex-direction:column;align-items:center;animation:idle 1.9s ease-in-out infinite;">
+    <svg width="54" height="64" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 95 Q22 108 28 122 Q34 136 28 140" stroke="#FF6B9D" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M45 100 Q40 114 44 128 Q48 140 42 144" stroke="#FF6B9D" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M60 102 Q60 116 60 130 Q60 140 60 144" stroke="#FF6B9D" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M75 100 Q80 114 76 128 Q72 140 78 144" stroke="#FF6B9D" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M90 95 Q98 108 92 122 Q86 136 92 140" stroke="#FF6B9D" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <circle cx="60" cy="60" r="52" fill="#FF6B9D" stroke="#222" stroke-width="4"/>
+      <ellipse cx="60" cy="68" rx="32" ry="28" fill="#FFB3D1" opacity="0.55"/>
+      <path d="M40 14 L58 22 L40 30 Z" fill="#FF3D7F" stroke="#222" stroke-width="2.5"/>
+      <path d="M80 14 L62 22 L80 30 Z" fill="#FF3D7F" stroke="#222" stroke-width="2.5"/>
+      <circle cx="60" cy="22" r="7" fill="#FFB3D1" stroke="#222" stroke-width="2.5"/>
+      <ellipse cx="40" cy="58" rx="12" ry="14" fill="white" stroke="#222" stroke-width="3"/>
+      <circle cx="40" cy="60" r="8" fill="#222"/>
+      <circle cx="43" cy="56" r="3.5" fill="white"/>
+      <ellipse cx="80" cy="58" rx="12" ry="14" fill="white" stroke="#222" stroke-width="3"/>
+      <circle cx="80" cy="60" r="8" fill="#222"/>
+      <circle cx="83" cy="56" r="3.5" fill="white"/>
+      <ellipse cx="24" cy="70" rx="9" ry="5.5" fill="#FF9DC8" opacity="0.6"/>
+      <ellipse cx="96" cy="70" rx="9" ry="5.5" fill="#FF9DC8" opacity="0.6"/>
+      <path d="M50 80 Q60 87 70 80" stroke="#C43070" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="nametag" style="color:#ff9dc8;font-size:10px;">JEZ</div>
+  </div>
+
+  <!-- mae in scene (smaller) -->
+  <div style="position:absolute;bottom:64px;right:130px;display:flex;flex-direction:column;align-items:center;animation:idle2 2s ease-in-out infinite;animation-delay:0.5s;">
+    <svg width="54" height="64" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 95 Q22 108 28 122 Q34 136 28 140" stroke="#C084FC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M45 100 Q40 114 44 128 Q48 140 42 144" stroke="#C084FC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M60 102 Q60 116 60 130 Q60 140 60 144" stroke="#C084FC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M75 100 Q80 114 76 128 Q72 140 78 144" stroke="#C084FC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M90 95 Q98 108 92 122 Q86 136 92 140" stroke="#C084FC" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <circle cx="60" cy="60" r="52" fill="#C084FC" stroke="#222" stroke-width="4"/>
+      <ellipse cx="60" cy="68" rx="32" ry="28" fill="#E9D5FF" opacity="0.55"/>
+      <ellipse cx="38" cy="15" rx="8" ry="13" fill="#C084FC" stroke="#222" stroke-width="3" transform="rotate(-15 38 15)"/>
+      <ellipse cx="82" cy="15" rx="8" ry="13" fill="#C084FC" stroke="#222" stroke-width="3" transform="rotate(15 82 15)"/>
+      <ellipse cx="40" cy="58" rx="12" ry="14" fill="white" stroke="#222" stroke-width="3"/>
+      <circle cx="40" cy="60" r="8" fill="#222"/>
+      <circle cx="43" cy="56" r="3.5" fill="white"/>
+      <ellipse cx="80" cy="58" rx="12" ry="14" fill="white" stroke="#222" stroke-width="3"/>
+      <circle cx="80" cy="60" r="8" fill="#222"/>
+      <circle cx="83" cy="56" r="3.5" fill="white"/>
+      <ellipse cx="24" cy="70" rx="9" ry="5.5" fill="#D8B4FE" opacity="0.65"/>
+      <ellipse cx="96" cy="70" rx="9" ry="5.5" fill="#D8B4FE" opacity="0.65"/>
+      <path d="M50 80 Q60 87 70 80" stroke="#7E22CE" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="nametag" style="color:#d8b4fe;font-size:10px;">MAE</div>
+  </div>
+</div>
+
+<p class="subtitle">Cute enough? 🐙 Tell me if you want different colors or accessories and we'll move on to the game design!</p>
+
+</body>
+</html>

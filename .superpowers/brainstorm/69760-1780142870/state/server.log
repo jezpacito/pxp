@@ -1,0 +1,13 @@
+{"type":"server-started","port":60803,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:60803","screen_dir":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content","state_dir":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/state"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/art-style.html"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/art-style-v2.html"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/characters-v1.html"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/creatures-v1.html"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/creatures-v2.html"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/creatures-v3.html"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/creatures-v4.html"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/creatures-v5.html"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/creatures-v6.html"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/waiting-1.html"}
+{"type":"screen-added","file":"/home/jezu/workspace/pxp-app-v2/.superpowers/brainstorm/69760-1780142870/content/game-design.html"}
+{"type":"server-stopped","reason":"idle timeout"}

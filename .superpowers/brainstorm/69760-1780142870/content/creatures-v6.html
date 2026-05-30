@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Characters v6</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+  h2 { font-size: 1.4rem; text-align: center; }
+  .subtitle { color: #aaa; font-size: 0.9rem; text-align: center; }
+
+  .stage {
+    background: linear-gradient(180deg, #aee4ff 0%, #d6f0ff 55%, #5cb85c 55%, #3a8a3a 100%);
+    border-radius: 24px;
+    width: 100%; max-width: 540px;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #333;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  }
+
+  .cloud { position: absolute; background: white; border-radius: 50px; opacity: 0.95; }
+
+  .tile {
+    position: absolute; bottom: 0;
+    width: 60px; height: 60px;
+    background: #5cb85c;
+    border-top: 5px solid #7dcc7d;
+    border-left: 3px solid #7dcc7d;
+    border-right: 3px solid #3a7a30;
+    border-bottom: 3px solid #3a7a30;
+  }
+
+  .char {
+    position: absolute;
+    bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .name {
+    font-size: 11px; font-weight: bold; letter-spacing: 2px;
+    background: rgba(0,0,0,0.55);
+    border-radius: 20px; padding: 3px 12px;
+  }
+
+  @keyframes idle  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  @keyframes idle2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
+
+  /* big preview */
+  .big-preview {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+  }
+  .big-char {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .big-name {
+    font-size: 16px; font-weight: bold; letter-spacing: 2px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 5px 20px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Jez & Mae 💕</h2>
+<p class="subtitle">Exact same character — just recolored</p>
+
+<!-- BIG CLOSE UP -->
+<div class="big-preview">
+
+  <!-- JEZ: pink -->
+  <div class="big-char" style="animation: idle 2s ease-in-out infinite;">
+    <svg width="130" height="150" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+      <!-- left arm stub -->
+      <ellipse cx="12" cy="72" rx="11" ry="8" fill="#FF6B9D" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(-30 12 72)"/>
+      <!-- right arm stub -->
+      <ellipse cx="88" cy="72" rx="11" ry="8" fill="#FF6B9D" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(30 88 72)"/>
+      <!-- left leg stub -->
+      <ellipse cx="35" cy="100" rx="12" ry="8" fill="#FF6B9D" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(-10 35 100)"/>
+      <!-- right leg stub -->
+      <ellipse cx="65" cy="100" rx="12" ry="8" fill="#FF6B9D" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(10 65 100)"/>
+
+      <!-- BODY (big round blob) -->
+      <circle cx="50" cy="58" r="44" fill="#FF6B9D" stroke="#1a1a1a" stroke-width="4"/>
+
+      <!-- HELMET RING (dark ring, no fill — just the border) -->
+      <circle cx="50" cy="55" r="32" fill="#f2e6d4" stroke="#1a1a1a" stroke-width="7"/>
+
+      <!-- visor glare -->
+      <ellipse cx="38" cy="42" rx="8" ry="5" fill="rgba(255,255,255,0.28)" transform="rotate(-20 38 42)"/>
+
+      <!-- LEFT EYE -->
+      <ellipse cx="38" cy="55" rx="5" ry="5.5" fill="#1a1a1a"/>
+      <circle cx="40" cy="52" r="2" fill="white" opacity="0.9"/>
+
+      <!-- RIGHT EYE -->
+      <ellipse cx="62" cy="55" rx="5" ry="5.5" fill="#1a1a1a"/>
+      <circle cx="64" cy="52" r="2" fill="white" opacity="0.9"/>
+
+      <!-- SMILE -->
+      <path d="M41 65 Q50 72 59 65" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+      <!-- bow on top -->
+      <path d="M34 16 L48 23 L34 30 Z" fill="#FF3D7F" stroke="#1a1a1a" stroke-width="2.5"/>
+      <path d="M66 16 L52 23 L66 30 Z" fill="#FF3D7F" stroke="#1a1a1a" stroke-width="2.5"/>
+      <circle cx="50" cy="23" r="5.5" fill="#FFB3D1" stroke="#1a1a1a" stroke-width="2.5"/>
+    </svg>
+    <div class="big-name" style="color:#ffb3d1;">JEZ</div>
+  </div>
+
+  <!-- heart -->
+  <div style="font-size:36px; animation: pulse 1.4s ease-in-out infinite;">💕</div>
+
+  <!-- MAE: purple -->
+  <div class="big-char" style="animation: idle2 2.2s ease-in-out infinite; animation-delay: 0.4s;">
+    <svg width="130" height="150" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+      <!-- left arm stub -->
+      <ellipse cx="12" cy="72" rx="11" ry="8" fill="#A855F7" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(-30 12 72)"/>
+      <!-- right arm stub -->
+      <ellipse cx="88" cy="72" rx="11" ry="8" fill="#A855F7" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(30 88 72)"/>
+      <!-- left leg stub -->
+      <ellipse cx="35" cy="100" rx="12" ry="8" fill="#A855F7" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(-10 35 100)"/>
+      <!-- right leg stub -->
+      <ellipse cx="65" cy="100" rx="12" ry="8" fill="#A855F7" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(10 65 100)"/>
+
+      <!-- BODY -->
+      <circle cx="50" cy="58" r="44" fill="#A855F7" stroke="#1a1a1a" stroke-width="4"/>
+
+      <!-- HELMET RING -->
+      <circle cx="50" cy="55" r="32" fill="#f2e6d4" stroke="#1a1a1a" stroke-width="7"/>
+
+      <!-- visor glare -->
+      <ellipse cx="38" cy="42" rx="8" ry="5" fill="rgba(255,255,255,0.28)" transform="rotate(-20 38 42)"/>
+
+      <!-- LEFT EYE -->
+      <ellipse cx="38" cy="55" rx="5" ry="5.5" fill="#1a1a1a"/>
+      <circle cx="40" cy="52" r="2" fill="white" opacity="0.9"/>
+
+      <!-- RIGHT EYE -->
+      <ellipse cx="62" cy="55" rx="5" ry="5.5" fill="#1a1a1a"/>
+      <circle cx="64" cy="52" r="2" fill="white" opacity="0.9"/>
+
+      <!-- SMILE -->
+      <path d="M41 65 Q50 72 59 65" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+      <!-- star on top -->
+      <text x="50" y="20" text-anchor="middle" font-size="20" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,0.4))">⭐</text>
+    </svg>
+    <div class="big-name" style="color:#e9d5ff;">MAE</div>
+  </div>
+
+</div>
+
+<!-- SMALL IN-GAME STAGE -->
+<div class="stage">
+  <div class="cloud" style="width:100px;height:30px;top:18px;left:20px;"></div>
+  <div class="cloud" style="width:65px;height:20px;top:13px;left:55px;"></div>
+  <div class="cloud" style="width:115px;height:34px;top:20px;right:30px;"></div>
+
+  <!-- heart in middle -->
+  <div style="position:absolute;bottom:90px;left:50%;transform:translateX(-50%);font-size:24px;animation:pulse 1.3s ease-in-out infinite;z-index:5;">💕</div>
+
+  <!-- tiles -->
+  <div class="tile" style="left:0;"></div><div class="tile" style="left:60px;"></div>
+  <div class="tile" style="left:120px;"></div><div class="tile" style="left:180px;"></div>
+  <div class="tile" style="left:240px;"></div><div class="tile" style="left:300px;"></div>
+  <div class="tile" style="left:360px;"></div><div class="tile" style="left:420px;"></div>
+  <div class="tile" style="left:480px;"></div>
+
+  <!-- JEZ small in-game -->
+  <div class="char" style="left:100px; animation: idle 1.9s ease-in-out infinite;">
+    <svg width="56" height="64" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="12" cy="72" rx="11" ry="8" fill="#FF6B9D" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(-30 12 72)"/>
+      <ellipse cx="88" cy="72" rx="11" ry="8" fill="#FF6B9D" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(30 88 72)"/>
+      <ellipse cx="35" cy="100" rx="12" ry="8" fill="#FF6B9D" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(-10 35 100)"/>
+      <ellipse cx="65" cy="100" rx="12" ry="8" fill="#FF6B9D" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(10 65 100)"/>
+      <circle cx="50" cy="58" r="44" fill="#FF6B9D" stroke="#1a1a1a" stroke-width="4"/>
+      <circle cx="50" cy="55" r="32" fill="#f2e6d4" stroke="#1a1a1a" stroke-width="7"/>
+      <ellipse cx="38" cy="42" rx="8" ry="5" fill="rgba(255,255,255,0.28)" transform="rotate(-20 38 42)"/>
+      <ellipse cx="38" cy="55" rx="5" ry="5.5" fill="#1a1a1a"/>
+      <circle cx="40" cy="52" r="2" fill="white" opacity="0.9"/>
+      <ellipse cx="62" cy="55" rx="5" ry="5.5" fill="#1a1a1a"/>
+      <circle cx="64" cy="52" r="2" fill="white" opacity="0.9"/>
+      <path d="M41 65 Q50 72 59 65" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M34 16 L48 23 L34 30 Z" fill="#FF3D7F" stroke="#1a1a1a" stroke-width="2.5"/>
+      <path d="M66 16 L52 23 L66 30 Z" fill="#FF3D7F" stroke="#1a1a1a" stroke-width="2.5"/>
+      <circle cx="50" cy="23" r="5.5" fill="#FFB3D1" stroke="#1a1a1a" stroke-width="2.5"/>
+    </svg>
+    <div class="name" style="color:#ffb3d1;">JEZ</div>
+  </div>
+
+  <!-- MAE small in-game -->
+  <div class="char" style="right:100px; animation: idle2 2.1s ease-in-out infinite; animation-delay:0.5s;">
+    <svg width="56" height="64" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="12" cy="72" rx="11" ry="8" fill="#A855F7" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(-30 12 72)"/>
+      <ellipse cx="88" cy="72" rx="11" ry="8" fill="#A855F7" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(30 88 72)"/>
+      <ellipse cx="35" cy="100" rx="12" ry="8" fill="#A855F7" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(-10 35 100)"/>
+      <ellipse cx="65" cy="100" rx="12" ry="8" fill="#A855F7" stroke="#1a1a1a" stroke-width="3.5" transform="rotate(10 65 100)"/>
+      <circle cx="50" cy="58" r="44" fill="#A855F7" stroke="#1a1a1a" stroke-width="4"/>
+      <circle cx="50" cy="55" r="32" fill="#f2e6d4" stroke="#1a1a1a" stroke-width="7"/>
+      <ellipse cx="38" cy="42" rx="8" ry="5" fill="rgba(255,255,255,0.28)" transform="rotate(-20 38 42)"/>
+      <ellipse cx="38" cy="55" rx="5" ry="5.5" fill="#1a1a1a"/>
+      <circle cx="40" cy="52" r="2" fill="white" opacity="0.9"/>
+      <ellipse cx="62" cy="55" rx="5" ry="5.5" fill="#1a1a1a"/>
+      <circle cx="64" cy="52" r="2" fill="white" opacity="0.9"/>
+      <path d="M41 65 Q50 72 59 65" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <text x="50" y="20" text-anchor="middle" font-size="20">⭐</text>
+    </svg>
+    <div class="name" style="color:#e9d5ff;">MAE</div>
+  </div>
+</div>
+
+<p class="subtitle">Same shape, same helmet ring, same smile — just pink & purple 🩷💜</p>
+<p class="subtitle">Good to go? Or tweak the accessory?</p>
+
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Design — 6 Years of Us</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d0d1a;
+    color: #fff;
+    min-height: 100vh;
+    padding: 36px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .game-title {
+    text-align: center;
+  }
+  .game-title h1 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #FF6B9D, #C084FC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+  }
+  .game-title p { color: #aaa; font-size: 0.9rem; margin-top: 6px; }
+
+  /* chapter map */
+  .chapter-map {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  /* connecting path between chapters */
+  .connector {
+    width: 4px;
+    height: 28px;
+    background: linear-gradient(#FF6B9D, #C084FC);
+    margin: 0 auto;
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+
+  .chapter {
+    border-radius: 16px;
+    padding: 18px 22px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    border: 2px solid;
+    position: relative;
+    transition: transform 0.15s;
+    cursor: default;
+  }
+  .chapter:hover { transform: translateX(4px); }
+
+  .chapter.cutscene { background: #1a1228; border-color: #4a2a6e; }
+  .chapter.playable { background: #0f1f2e; border-color: #1a4a6e; }
+  .chapter.cliffhanger { background: #1f1800; border-color: #b08000; }
+
+  .chapter-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 1rem;
+    flex-shrink: 0;
+    border: 2px solid;
+  }
+  .cutscene .chapter-num { background: #2a1248; border-color: #7c3aed; color: #c084fc; }
+  .playable .chapter-num { background: #0a2a3e; border-color: #0ea5e9; color: #7dd3fc; }
+  .cliffhanger .chapter-num { background: #2a2000; border-color: #d97706; color: #fcd34d; }
+
+  .chapter-info { flex: 1; }
+  .chapter-info h3 { font-size: 1rem; margin-bottom: 4px; }
+  .chapter-info .desc { font-size: 0.8rem; color: #aaa; line-height: 1.5; }
+  .chapter-info .location { font-size: 0.72rem; color: #666; margin-top: 4px; }
+
+  .badge {
+    font-size: 0.65rem; font-weight: bold; letter-spacing: 1px;
+    padding: 3px 8px; border-radius: 20px;
+    align-self: flex-start; margin-top: 2px; white-space: nowrap;
+  }
+  .badge.cut { background: #3b0764; color: #c084fc; }
+  .badge.play { background: #0c2d4a; color: #7dd3fc; }
+  .badge.cliff { background: #451a03; color: #fcd34d; }
+
+  .emoji { font-size: 1.4rem; }
+
+  /* tech stack */
+  .tech {
+    width: 100%; max-width: 700px;
+    background: #111827;
+    border-radius: 16px;
+    padding: 20px 24px;
+    border: 2px solid #1f2937;
+  }
+  .tech h3 { font-size: 0.9rem; color: #aaa; margin-bottom: 14px; letter-spacing: 1px; text-transform: uppercase; }
+  .tech-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+  .tech-item {
+    background: #1f2937; border-radius: 10px; padding: 10px 16px;
+    font-size: 0.8rem; display: flex; align-items: center; gap: 8px;
+    border: 1px solid #374151;
+  }
+  .tech-item .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  .question { color: #aaa; font-size: 0.88rem; text-align: center; }
+  .question strong { color: #FF6B9D; }
+</style>
+</head>
+<body>
+
+<div class="game-title">
+  <h1>✦ 6 YEARS OF US ✦</h1>
+  <p>A 2D platformer love story — browser, Phaser.js</p>
+</div>
+
+<!-- CHAPTER MAP -->
+<div class="chapter-map">
+
+  <!-- CH 1 -->
+  <div class="chapter cutscene">
+    <div class="chapter-num">1</div>
+    <div class="chapter-info">
+      <h3><span class="emoji">💻</span> Quarantine Quest</h3>
+      <div class="desc">Two glowing screens in the dark. Chat bubbles float between them. Hearts appear as the messages keep coming. No gameplay — pure story intro.</div>
+      <div class="location">📍 2020 · COVID · Online</div>
+    </div>
+    <div class="badge cut">CUTSCENE</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- CH 2 -->
+  <div class="chapter playable">
+    <div class="chapter-num">2</div>
+    <div class="chapter-info">
+      <h3><span class="emoji">✈️</span> First Flight</h3>
+      <div class="desc">Play as Jez — run through the airport, jump over luggage carts, collect boarding passes. Mae is waiting at the arrivals gate holding a sign. Reach her to complete the level.</div>
+      <div class="location">📍 Mindanao → Manila · Airport</div>
+    </div>
+    <div class="badge play">PLAYABLE</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- CH 3 -->
+  <div class="chapter playable">
+    <div class="chapter-num">3</div>
+    <div class="chapter-info">
+      <h3><span class="emoji">🌲</span> The Baguio Quest</h3>
+      <div class="desc">Both characters run together through pine forests and the iconic Burnham Park. Collect strawberries and flowers. First time as a duo — the level is brighter and warmer than the rest.</div>
+      <div class="location">📍 Baguio City · Mountains</div>
+    </div>
+    <div class="badge play">PLAYABLE</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- CH 4 -->
+  <div class="chapter cutscene">
+    <div class="chapter-num">4</div>
+    <div class="chapter-info">
+      <h3><span class="emoji">🗺️</span> Long Distance</h3>
+      <div class="desc">A map of the Philippines. Two blinking dots — one in Manila, one in Mindanao. Love letters and emoji float slowly between them. A countdown ticker shows the days apart.</div>
+      <div class="location">📍 Manila ↔ Mindanao · LDR</div>
+    </div>
+    <div class="badge cut">CUTSCENE</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- CH 5 -->
+  <div class="chapter playable">
+    <div class="chapter-num">5</div>
+    <div class="chapter-info">
+      <h3><span class="emoji">💼</span> The Grind</h3>
+      <div class="desc">Side-scrolling auto-runner. Jez and Mae each on their own side of the screen, collecting coins and dodging bills/stress clouds. They're working towards the same goal. Coins fill a shared "Manila Fund" bar at the top.</div>
+      <div class="location">📍 Working · Saving · Grinding</div>
+    </div>
+    <div class="badge play">PLAYABLE</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- CH 6 -->
+  <div class="chapter playable">
+    <div class="chapter-num">6</div>
+    <div class="chapter-info">
+      <h3><span class="emoji">🏠</span> Manila, Finally</h3>
+      <div class="desc">City level — apartment hunting (jump to reach the right unit!), eating out at food stalls, going on dates. Both characters run together through the city. Collect keys, ramen bowls, and shared memories.</div>
+      <div class="location">📍 Manila · Apartment · Dates · Everyday quests</div>
+    </div>
+    <div class="badge play">PLAYABLE</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- CH 7 -->
+  <div class="chapter cutscene">
+    <div class="chapter-num">7</div>
+    <div class="chapter-info">
+      <h3><span class="emoji">✨</span> A Blink of an Eye</h3>
+      <div class="desc">Montage cutscene. Six memory "frames" flash by — one per year. A heart counter ticks up: 1… 2… 3… 4… 5… 6. The screen fills with sparkles. "And just like that…"</div>
+      <div class="location">📍 6 Years · Present Day</div>
+    </div>
+    <div class="badge cut">CUTSCENE</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- CH 8 — CLIFFHANGER -->
+  <div class="chapter cliffhanger">
+    <div class="chapter-num">?</div>
+    <div class="chapter-info">
+      <h3><span class="emoji">💍</span> The Final Quest</h3>
+      <div class="desc">A glowing golden level. Mae reaches a mysterious glowing chest. She opens it — a ring slowly floats out, spinning. The music swells. Screen fades to black. "???" · "To be continued…"</div>
+      <div class="location">📍 ??? · Year 7</div>
+    </div>
+    <div class="badge cliff">CLIFFHANGER ✦</div>
+  </div>
+
+</div>
+
+<!-- TECH STACK -->
+<div class="tech">
+  <h3>Tech Stack</h3>
+  <div class="tech-grid">
+    <div class="tech-item"><div class="dot" style="background:#f97316;"></div>Phaser.js 3 — game engine</div>
+    <div class="tech-item"><div class="dot" style="background:#facc15;"></div>Vanilla JS — cutscene overlays</div>
+    <div class="tech-item"><div class="dot" style="background:#60a5fa;"></div>HTML/CSS — UI & story panels</div>
+    <div class="tech-item"><div class="dot" style="background:#4ade80;"></div>Kenney New Platformer Pack — art assets</div>
+    <div class="tech-item"><div class="dot" style="background:#f472b6;"></div>SVG — custom Jez & Mae sprites</div>
+    <div class="tech-item"><div class="dot" style="background:#a78bfa;"></div>No backend — runs fully in browser</div>
+  </div>
+</div>
+
+<p class="question">Does this feel right? Any chapters to change, rename, or add? <strong>Reply here ↓</strong></p>
+
+</body>
+</html>

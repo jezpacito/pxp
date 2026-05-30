@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenney Astronaut Characters</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #1a1a2e;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 32px;
+  }
+  h2 { font-size: 1.5rem; text-align: center; }
+  .subtitle { color: #aaa; font-size: 0.9rem; text-align: center; }
+
+  .showcase {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    align-items: flex-end;
+    background: linear-gradient(180deg, #b8e4ff 0%, #d9f0ff 55%, #5cb85c 55%, #3a8a3a 100%);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 560px;
+    padding: 40px 60px 30px;
+    border: 4px solid #333;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* clouds */
+  .showcase::before {
+    content: '';
+    position: absolute;
+    top: 16px; left: 30px;
+    width: 90px; height: 28px;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.9;
+  }
+  .showcase::after {
+    content: '';
+    position: absolute;
+    top: 12px; right: 50px;
+    width: 110px; height: 32px;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.9;
+  }
+
+  .char { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .char svg { filter: drop-shadow(0 6px 16px rgba(0,0,0,0.35)); }
+
+  @keyframes idle  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  @keyframes idle2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+
+  .name {
+    font-size: 13px; font-weight: bold; letter-spacing: 2px;
+    background: rgba(0,0,0,0.55);
+    border-radius: 20px; padding: 4px 14px;
+  }
+
+  .heart {
+    font-size: 32px;
+    align-self: center;
+    margin-bottom: 20px;
+    animation: pulse 1.3s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.25)} }
+</style>
+</head>
+<body>
+
+<h2>Jez & Mae 💕</h2>
+<p class="subtitle">Same character as the Kenney pack — colored suits, simple face, no weirdness</p>
+
+<div class="showcase">
+
+  <!-- JEZ — pink suit -->
+  <div class="char" style="animation: idle 1.9s ease-in-out infinite;">
+    <svg width="100" height="120" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- left arm -->
+      <ellipse cx="14" cy="76" rx="10" ry="7" fill="#FF6B9D" stroke="#222" stroke-width="3" transform="rotate(-25 14 76)"/>
+      <!-- right arm -->
+      <ellipse cx="86" cy="76" rx="10" ry="7" fill="#FF6B9D" stroke="#222" stroke-width="3" transform="rotate(25 86 76)"/>
+
+      <!-- body -->
+      <ellipse cx="50" cy="82" rx="22" ry="19" fill="#FF6B9D" stroke="#222" stroke-width="3"/>
+
+      <!-- left leg -->
+      <ellipse cx="36" cy="100" rx="10" ry="7" fill="#FF6B9D" stroke="#222" stroke-width="3"/>
+      <!-- right leg -->
+      <ellipse cx="64" cy="100" rx="10" ry="7" fill="#FF6B9D" stroke="#222" stroke-width="3"/>
+
+      <!-- helmet outer ring -->
+      <circle cx="50" cy="42" r="38" fill="#FF6B9D" stroke="#222" stroke-width="4.5"/>
+
+      <!-- visor face (inner circle, light) -->
+      <circle cx="50" cy="44" r="28" fill="#f0e0c8" stroke="#444" stroke-width="2"/>
+
+      <!-- subtle visor glare -->
+      <ellipse cx="38" cy="32" rx="9" ry="5" fill="rgba(255,255,255,0.22)" transform="rotate(-20 38 32)"/>
+
+      <!-- LEFT eye — small, simple, Kenney style -->
+      <ellipse cx="38" cy="44" rx="5" ry="6" fill="#222"/>
+      <!-- RIGHT eye -->
+      <ellipse cx="62" cy="44" rx="5" ry="6" fill="#222"/>
+
+      <!-- tiny eye shine -->
+      <circle cx="40" cy="41" r="2" fill="white" opacity="0.8"/>
+      <circle cx="64" cy="41" r="2" fill="white" opacity="0.8"/>
+
+      <!-- flat mouth (neutral, small) -->
+      <rect x="43" y="54" width="14" height="3" rx="2" fill="#555"/>
+
+      <!-- bow on top of helmet -->
+      <path d="M32 8 L48 16 L32 24 Z" fill="#FF3D7F" stroke="#222" stroke-width="2.5"/>
+      <path d="M68 8 L52 16 L68 24 Z" fill="#FF3D7F" stroke="#222" stroke-width="2.5"/>
+      <circle cx="50" cy="16" r="6" fill="#FFB3D1" stroke="#222" stroke-width="2.5"/>
+
+    </svg>
+    <div class="name" style="color:#ffb3d1;">JEZ</div>
+  </div>
+
+  <!-- heart in the middle -->
+  <div class="heart">💕</div>
+
+  <!-- MAE — purple suit -->
+  <div class="char" style="animation: idle2 2.1s ease-in-out infinite; animation-delay: 0.5s;">
+    <svg width="100" height="120" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- left arm -->
+      <ellipse cx="14" cy="76" rx="10" ry="7" fill="#C084FC" stroke="#222" stroke-width="3" transform="rotate(-25 14 76)"/>
+      <!-- right arm -->
+      <ellipse cx="86" cy="76" rx="10" ry="7" fill="#C084FC" stroke="#222" stroke-width="3" transform="rotate(25 86 76)"/>
+
+      <!-- body -->
+      <ellipse cx="50" cy="82" rx="22" ry="19" fill="#C084FC" stroke="#222" stroke-width="3"/>
+
+      <!-- left leg -->
+      <ellipse cx="36" cy="100" rx="10" ry="7" fill="#C084FC" stroke="#222" stroke-width="3"/>
+      <!-- right leg -->
+      <ellipse cx="64" cy="100" rx="10" ry="7" fill="#C084FC" stroke="#222" stroke-width="3"/>
+
+      <!-- helmet outer ring -->
+      <circle cx="50" cy="42" r="38" fill="#C084FC" stroke="#222" stroke-width="4.5"/>
+
+      <!-- visor face -->
+      <circle cx="50" cy="44" r="28" fill="#f0e0c8" stroke="#444" stroke-width="2"/>
+
+      <!-- glare -->
+      <ellipse cx="38" cy="32" rx="9" ry="5" fill="rgba(255,255,255,0.22)" transform="rotate(-20 38 32)"/>
+
+      <!-- eyes -->
+      <ellipse cx="38" cy="44" rx="5" ry="6" fill="#222"/>
+      <ellipse cx="62" cy="44" rx="5" ry="6" fill="#222"/>
+      <circle cx="40" cy="41" r="2" fill="white" opacity="0.8"/>
+      <circle cx="64" cy="41" r="2" fill="white" opacity="0.8"/>
+
+      <!-- mouth -->
+      <rect x="43" y="54" width="14" height="3" rx="2" fill="#555"/>
+
+      <!-- little star accessory on helmet -->
+      <text x="50" y="14" text-anchor="middle" font-size="18">⭐</text>
+
+    </svg>
+    <div class="name" style="color:#e9d5ff;">MAE</div>
+  </div>
+
+</div>
+
+<p class="subtitle">Exact same astronaut style from the pack 🚀</p>
+<p class="subtitle" style="margin-top:4px;">Jez = pink 🩷 bow &nbsp;|&nbsp; Mae = purple 💜 star &nbsp;— happy with this?</p>
+
+</body>
+</html>
